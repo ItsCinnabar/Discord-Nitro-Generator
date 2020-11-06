@@ -49,7 +49,6 @@ class NitroGen:
 
     def start(self) -> bool:
         threads = []
-        # try:
         for i in range(self.numberOfThreads):
             logging.info(f"Started thread {i+1}")
             thread = threading.Thread(target=self.checkCode)
@@ -60,6 +59,7 @@ class NitroGen:
             thread.join()
             logging.info(f"Thread {i+1} finished")
         logging.info("All codes generated, goodbye")
+        return True
 
     def checkCode(self) -> None:
         while self.numberOfCodes > 0:
